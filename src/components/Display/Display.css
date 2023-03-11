@@ -1,0 +1,13 @@
+.display {
+  display: flex;
+  justify-content: flex-end;
+  background-color: rgba(243, 244, 246, 1);
+  border-radius: 5px;
+  padding: 5px;
+  height: 52px;
+  font-size: 36px;
+  font-weight: 800;
+  border-radius: 6px;
+  padding: 4px 8px;
+  overflow: hidden;
+}

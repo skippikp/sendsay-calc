@@ -1,0 +1,32 @@
+.button {
+  border-radius: 5px;
+  border: 1px solid rgba(226, 227, 229, 1);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 0.8rem 1rem;
+  background-color: #FFFF;
+  cursor: pointer;
+  height: 100%;
+  width: 100%;
+}
+
+.button:hover {
+  border: 2px solid var(--purple-color);
+  padding: calc(0.8rem - 1px) calc(1rem - 1px);
+}
+
+.button-contained {
+  border: 1px solid var(--purple-color);
+  background-color: var(--purple-color);
+  color: #FFFF;
+}
+
+.button:disabled {
+  color: initial;
+  pointer-events: none;
+}
+
+.button-contained:disabled {
+  color: #FFFF;
+  pointer-events: none;
+}

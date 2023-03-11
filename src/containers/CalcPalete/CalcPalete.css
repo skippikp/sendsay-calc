@@ -1,0 +1,7 @@
+.palete {
+  height: var(--container-height);
+  width: var(--container-width);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}

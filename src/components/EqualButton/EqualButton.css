@@ -1,0 +1,5 @@
+.equal-button-container {
+  display: grid;
+  height: 65px;
+  width: 100%;
+}

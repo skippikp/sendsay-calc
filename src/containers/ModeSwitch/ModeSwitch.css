@@ -1,0 +1,16 @@
+.switch-container {
+  height: 38px;
+  border-radius: 6px;
+  padding: 1px;
+  background-color: rgba(243, 244, 246, 1);
+  display: flex;
+  justify-content: space-between;
+}
+
+.button-content {
+  gap: 10px;
+}
+
+.button-content__icon_active {
+  color: var(--purple-color);
+}

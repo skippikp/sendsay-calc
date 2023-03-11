@@ -1,0 +1,28 @@
+.switch-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  padding: 4px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  flex-basis: 100%;
+  border: 1px solid transparent;
+}
+
+.switch-button_active {
+  background-color: #FFF;
+  border: 1px solid rgba(226, 227, 229, 1);
+}
+
+.switch-button__icon_active * {
+  stroke: var(--purple-color);
+}
+
+.switch-button__radio {
+  display: none;
+}
+
+.switch-button label {
+  cursor: pointer;
+}

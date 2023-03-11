@@ -1,0 +1,8 @@
+.operations {
+  display: flex;
+  gap: 8px;
+}
+
+.operations .button {
+  flex-basis: 100%;
+}
