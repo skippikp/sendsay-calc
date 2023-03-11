@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/sendsay-calc/static/css/main.f1becfd3.css",
+    "main.js": "/sendsay-calc/static/js/main.f8e95b4c.js",
+    "index.html": "/sendsay-calc/index.html",
+    "static/media/image.svg": "/sendsay-calc/static/media/image.ff2a0d409c14819260b08f919e659b64.svg",
+    "main.f1becfd3.css.map": "/sendsay-calc/static/css/main.f1becfd3.css.map",
+    "main.f8e95b4c.js.map": "/sendsay-calc/static/js/main.f8e95b4c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f1becfd3.css",
+    "static/js/main.f8e95b4c.js"
+  ]
+}
