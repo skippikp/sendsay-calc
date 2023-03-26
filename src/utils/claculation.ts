@@ -21,20 +21,24 @@ export const evaluate: (options: EvaluateOptions) => string = ({
     return '0';
   }
 
+  const prevNumbersAfterFloatPoint = prev.toString().split('.')[1]?.length || 0;
+  const currentNumbersAfterFloatPoint = current.toString().split('.')[1]?.length || 0;
+  const numbersAfterFloatPoint = Math.max(prevNumbersAfterFloatPoint, currentNumbersAfterFloatPoint);
+
   let computation;
 
   switch (operation) {
     case Operations.PLUS:
-      computation = prev + current;
+      computation = +(prev + current).toFixed(numbersAfterFloatPoint);
       break;
     case Operations.MINUS:
-      computation = prev - current;
+      computation = +(prev - current).toFixed(numbersAfterFloatPoint);
       break;
     case Operations.DIVIDE:
       computation = prev / current;
       break;
     case Operations.MULTIPLY:
-      computation = prev * current;
+      computation = +(prev * current).toFixed(numbersAfterFloatPoint);
       break;
     default:
       return '';
@@ -55,5 +59,5 @@ export const evaluate: (options: EvaluateOptions) => string = ({
 
 export const roundBigNumber = (value: string) => {
   const lastChar = value[MAX_NUMBERS_LENGTH - 1];
-  return value.slice(0, MAX_NUMBERS_LENGTH) + (Number(lastChar) + 1);
+  return (value.slice(0, MAX_NUMBERS_LENGTH - 1) + (Number(lastChar) + 1 || '')).slice(0, MAX_NUMBERS_LENGTH);
 };

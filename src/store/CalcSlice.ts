@@ -8,6 +8,7 @@ export interface CalcState {
   previousOperand: string;
   operation: Operations | null;
   evaluated: boolean;
+  rounded: boolean;
 }
 
 const initialState: CalcState = {
@@ -16,6 +17,7 @@ const initialState: CalcState = {
   previousOperand: '',
   operation: null,
   evaluated: false,
+  rounded: false,
 };
 
 export const calcSlice = createSlice({
@@ -28,11 +30,16 @@ export const calcSlice = createSlice({
         state.previousOperand = '';
         state.evaluated = false;
         state.operation = null;
+        state.rounded = false;
       }
 
-      if (state.currentOperand.length > MAX_NUMBERS_LENGTH) {
+      if (state.currentOperand.length === MAX_NUMBERS_LENGTH) {
+        if (state.rounded) {
+          return;
+        }
         state.currentOperand = roundBigNumber(state.currentOperand);
         state.visibleValue = state.currentOperand;
+        state.rounded = true;
         return;
       }
 
@@ -67,6 +74,7 @@ export const calcSlice = createSlice({
 
       state.currentOperand += action.payload;
       state.visibleValue = state.currentOperand;
+      state.rounded = false;
     },
     chooseOperation: (state, action: PayloadAction<Operations>) => {
       if (state.currentOperand === INFINITE_VALUE) {
@@ -78,7 +86,6 @@ export const calcSlice = createSlice({
         return;
       }
       if (state.evaluated) {
-        state.previousOperand = state.currentOperand;
         state.currentOperand = '';
         state.visibleValue = state.previousOperand;
         state.evaluated = false;
@@ -116,8 +123,7 @@ export const calcSlice = createSlice({
         return;
       }
       state.evaluated = true;
-      state.currentOperand = evaluate(state);
-      state.previousOperand = state.currentOperand;
+      state.previousOperand = evaluate(state);
       state.visibleValue = state.previousOperand;
     },
     resetCalc: (state) => {
